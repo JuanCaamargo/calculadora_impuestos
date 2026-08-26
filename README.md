@@ -98,3 +98,85 @@ Entre ellas:
 * Seleccionar simultáneamente IVA 5% e IVA 19%.
 * Ingresar una cantidad inválida de bolsas.
 
+
+
+
+## Pruebas unitarias
+
+Las pruebas unitarias del proyecto se encuentran en la carpeta `tests/`, específicamente en el archivo:
+
+```text
+tests/
+├── __init__.py
+└── test_calculadora.py
+```
+
+El archivo `test_calculadora.py` contiene 10 casos de prueba para verificar el correcto funcionamiento de la calculadora de impuestos.
+
+### Distribución de las pruebas
+
+| Código | Tipo de prueba | Descripción                                           |
+| ------ | -------------- | ----------------------------------------------------- |
+| CP-01  | Normal         | Cálculo de IVA del 19%                                |
+| CP-02  | Normal         | Cálculo del Impuesto Nacional al Consumo (INC) del 8% |
+| CP-03  | Normal         | IVA del 19% incluyendo bolsas plásticas               |
+| CP-04  | Excepcional    | Cálculo con un precio muy alto                        |
+| CP-05  | Excepcional    | Compra sin seleccionar ningún impuesto                |
+| CP-06  | Excepcional    | Producto excluido con bolsas plásticas                |
+| CP-07  | Error          | Ingreso de un precio negativo                         |
+| CP-08  | Error          | Ingreso de letras en el precio                        |
+| CP-09  | Error          | Ingreso de un precio vacío                            |
+| CP-10  | Error          | Selección simultánea de IVA del 19% e IVA del 5%      |
+
+### ¿Cómo ejecutar las pruebas?
+
+Para ejecutar las pruebas unitarias, primero se debe abrir una terminal ubicada en la carpeta raíz del proyecto:
+
+```text
+calculadora_impuestos/
+```
+
+Luego se ejecuta el siguiente comando:
+
+```bash
+python tests/test_calculadora.py
+```
+
+El programa ejecutará automáticamente los 10 casos de prueba y mostrará en consola el resultado de cada uno.
+
+### Resultado esperado
+
+Cuando todas las pruebas funcionan correctamente, se mostrará un resultado similar al siguiente:
+
+```text
+============================================================
+       PRUEBAS DE LA CALCULADORA DE IMPUESTOS
+============================================================
+
+RESULTADO DE CADA CASO
+------------------------------------------------------------
+CP-01    - IVA 19%                        [PASÓ]
+CP-02    - INC 8%                        [PASÓ]
+CP-03    - IVA 19% + bolsas             [PASÓ]
+CP-04    - Precio muy alto               [PASÓ]
+CP-05    - Ningun impuesto               [PASÓ]
+CP-06    - Excluido + bolsas             [PASÓ]
+CP-07    - Precio negativo               [PASÓ]
+CP-08    - Letras en precio              [PASÓ]
+CP-09    - Precio vacio                  [PASÓ]
+CP-10    - Doble IVA                     [PASÓ]
+
+============================================================
+RESULTADO FINAL
+============================================================
+Pruebas ejecutadas: 10
+Pruebas exitosas:   10
+Pruebas fallidas:   0
+Errores:            0
+
+TODAS LAS PRUEBAS PASARON
+============================================================
+```
+
+Las pruebas utilizan el módulo `unittest` de Python y permiten comprobar tanto los cálculos correctos como el manejo de situaciones excepcionales y errores de entrada.
+
