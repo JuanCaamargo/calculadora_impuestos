@@ -180,3 +180,131 @@ TODAS LAS PRUEBAS PASARON
 
 Las pruebas utilizan el módulo `unittest` de Python y permiten comprobar tanto los cálculos correctos como el manejo de situaciones excepcionales y errores de entrada.
 
+
+
+
+
+## Ejecución de la aplicación por consola
+
+La aplicación cuenta con una interfaz de consola que permite al usuario calcular los impuestos correspondientes a una compra.
+
+El archivo principal de la interfaz se encuentra en:
+
+```text
+src/
+└── view/
+    └── console/
+        └── consola_calculadora.py
+```
+
+### ¿Cómo ejecutar la aplicación?
+
+Para ejecutar la aplicación, se debe abrir una terminal ubicada en la carpeta raíz del proyecto:
+
+```text
+calculadora_impuestos/
+```
+
+Luego ejecutar el siguiente comando:
+
+```bash
+python src/view/console/consola_calculadora.py
+```
+
+### Menú principal
+
+Al iniciar la aplicación se muestra el siguiente menú:
+
+```text
+========================================
+   CALCULADORA DE IMPUESTOS DE VENTA
+========================================
+1. Calcular impuestos de una compra
+2. Salir
+Seleccione una opcion:
+```
+
+Las opciones disponibles son:
+
+* **1. Calcular impuestos de una compra:** inicia el proceso para calcular los impuestos de una compra.
+* **2. Salir:** finaliza la aplicación.
+
+### Proceso de cálculo
+
+Al seleccionar la opción 1, la aplicación solicita el precio de la compra y posteriormente permite seleccionar el tipo de impuesto que corresponde al producto.
+
+Las categorías disponibles son:
+
+```text
+1. IVA 19%
+2. IVA 5%
+3. Exento
+4. Excluido
+5. Impuesto Nacional al Consumo (INC)
+6. Impuesto a licores
+```
+
+Después de seleccionar la categoría, la aplicación pregunta si la compra incluye bolsas plásticas:
+
+```text
+¿La compra incluye bolsas plasticas? (s/n):
+```
+
+Si la respuesta es `s`, se solicita la cantidad de bolsas incluidas en la compra.
+
+Finalmente, la aplicación calcula y muestra el detalle de los impuestos y el valor total a pagar.
+
+### Ejemplo de ejecución
+
+Un ejemplo de cálculo utilizando un producto de $50.000 con IVA del 19% y sin bolsas plásticas es:
+
+```text
+========================================
+   CALCULADORA DE IMPUESTOS DE VENTA
+========================================
+1. Calcular impuestos de una compra
+2. Salir
+Seleccione una opcion: 1
+
+========================================
+      CALCULADORA DE IMPUESTOS
+========================================
+Ingrese el precio del producto: 50000
+
+Seleccione la categoria del producto:
+1. IVA 19%
+2. IVA 5%
+3. Exento
+4. Excluido
+5. Impuesto Nacional al Consumo (INC)
+6. Impuesto a licores
+Seleccione una opcion: 1
+
+¿La compra incluye bolsas plasticas? (s/n): n
+```
+
+El sistema realiza el cálculo correspondiente y muestra el detalle de la compra junto con el total a pagar.
+
+### Validaciones
+
+La aplicación valida los datos ingresados por el usuario para evitar cálculos incorrectos. Entre las principales validaciones se encuentran:
+
+* El precio debe ser numérico.
+* El precio debe ser mayor que cero.
+* Se debe seleccionar una opción válida del menú.
+* No se pueden seleccionar simultáneamente IVA del 19% e IVA del 5%.
+* La respuesta sobre las bolsas plásticas debe ser `s` o `n`.
+* Si se incluyen bolsas plásticas, la cantidad debe ser válida.
+
+### Categorías de impuestos
+
+| Opción | Impuesto                           |
+| ------ | ---------------------------------- |
+| 1      | IVA 19%                            |
+| 2      | IVA 5%                             |
+| 3      | Exento                             |
+| 4      | Excluido                           |
+| 5      | Impuesto Nacional al Consumo (INC) |
+| 6      | Impuesto a licores                 |
+
+La aplicación permite además incluir el impuesto correspondiente a las bolsas plásticas cuando estas forman parte de la compra.
