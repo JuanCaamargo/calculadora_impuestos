@@ -12,7 +12,7 @@ El sistema también permite agregar el impuesto correspondiente a las bolsas pl�
 
 
 ## Arquitectura del Proyecto
-
+```
 calculadora_impuestos/
 ├── src/
 │   ├── model/
@@ -29,7 +29,7 @@ calculadora_impuestos/
     ├── Casos de prueba calculadora impuestos.xlsx
     └── Entrevista.mp4
 
-
+```
 
 ## Funcionalidades
 
