@@ -146,16 +146,16 @@ def ejecutar_calculo():
 
     try:
         resultado = calc.calcular_impuestos(
-            precio,
-            iva19=iva19,
-            iva5=iva5,
-            exento=exento,
-            excluido=excluido,
-            inc=inc,
-            licor=licor,
-            bolsas=incluye_bolsas,
-            cantidad_bolsas=cantidad_bolsas
-        )
+    precio,
+    iva19=iva19,
+    iva5=iva5,
+    exento=exento,
+    excluido=excluido,
+    inc=inc,
+    impuesto_licor=licor,
+    bolsas=incluye_bolsas,
+    cantidad_bolsas=cantidad_bolsas
+)
 
     except calc.ImpuestoInvalidoError as error:
         print("\nError:", error)
