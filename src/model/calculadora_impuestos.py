@@ -10,41 +10,35 @@ PRECIO_MAXIMO = 1_000_000_000
 
 
 class PrecioInvalidoError(Exception):
-    pass
+    "Excepción que se dispara cuando el precio ingresado no es válido"
+
+    def __init__(self):
+        super().__init__("El precio ingresado no es válido")
 
 
 class ImpuestoInvalidoError(Exception):
-    pass
+    "Excepción que se dispara cuando la selección del impuesto no es válida"
+
+    def __init__(self):
+        super().__init__("La selección de impuestos no es válida")
 
 
 def procesar_precio(texto):
     if texto is None or texto.strip() == "":
-        raise PrecioInvalidoError(
-            "El precio es obligatorio, no puede quedar vacio."
-        )
+        raise PrecioInvalidoError()
 
     texto_limpio = texto.strip().replace(",", "")
 
     try:
         precio = float(texto_limpio)
     except ValueError:
-        raise PrecioInvalidoError(
-            "El precio debe ser un valor numerico."
-        )
+        raise PrecioInvalidoError()
 
     if precio <= 0:
-        raise PrecioInvalidoError(
-            "El precio debe ser mayor que cero."
-        )
+        raise PrecioInvalidoError()
 
     if precio < PRECIO_MINIMO or precio > PRECIO_MAXIMO:
-        raise PrecioInvalidoError(
-            "El precio debe estar entre "
-            + str(PRECIO_MINIMO)
-            + " y "
-            + str(PRECIO_MAXIMO)
-            + "."
-        )
+        raise PrecioInvalidoError()
 
     return precio
 
@@ -61,10 +55,7 @@ def calcular_impuestos(
     cantidad_bolsas=0
 ):
     if iva19 and iva5:
-        raise ImpuestoInvalidoError(
-            "No se puede seleccionar IVA 5% e IVA 19% "
-            "al mismo tiempo."
-        )
+        raise ImpuestoInvalidoError()
 
     cantidad_seleccionados = 0
 
@@ -80,16 +71,10 @@ def calcular_impuestos(
             cantidad_seleccionados += 1
 
     if cantidad_seleccionados == 0:
-        raise ImpuestoInvalidoError(
-            "Debe seleccionar al menos un tipo de impuesto "
-            "(o Exento/Excluido)."
-        )
+        raise ImpuestoInvalidoError()
 
     if cantidad_seleccionados > 1:
-        raise ImpuestoInvalidoError(
-            "Solo se puede seleccionar una categoria "
-            "de impuesto principal por producto."
-        )
+        raise ImpuestoInvalidoError()
 
     if iva19:
         nombre_impuesto = "IVA 19%"
@@ -131,10 +116,7 @@ def calcular_impuestos(
 
     if bolsas:
         if cantidad_bolsas <= 0:
-            raise ImpuestoInvalidoError(
-                "Debe indicar una cantidad valida "
-                "de bolsas plasticas."
-            )
+            raise ImpuestoInvalidoError()
 
         valor_bolsas = round(
             cantidad_bolsas * VALOR_BOLSA,
