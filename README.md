@@ -284,27 +284,3 @@ Seleccione una opcion: 1
 ```
 
 El sistema realiza el cálculo correspondiente y muestra el detalle de la compra junto con el total a pagar.
-
-### Validaciones
-
-La aplicación valida los datos ingresados por el usuario para evitar cálculos incorrectos. Entre las principales validaciones se encuentran:
-
-* El precio debe ser numérico.
-* El precio debe ser mayor que cero.
-* Se debe seleccionar una opción válida del menú.
-* No se pueden seleccionar simultáneamente IVA del 19% e IVA del 5%.
-* La respuesta sobre las bolsas plásticas debe ser `s` o `n`.
-* Si se incluyen bolsas plásticas, la cantidad debe ser válida.
-
-### Categorías de impuestos
-
-| Opción | Impuesto                           |
-| ------ | ---------------------------------- |
-| 1      | IVA 19%                            |
-| 2      | IVA 5%                             |
-| 3      | Exento                             |
-| 4      | Excluido                           |
-| 5      | Impuesto Nacional al Consumo (INC) |
-| 6      | Impuesto a licores                 |
-
-La aplicación permite además incluir el impuesto correspondiente a las bolsas plásticas cuando estas forman parte de la compra.
