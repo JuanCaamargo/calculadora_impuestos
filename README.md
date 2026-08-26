@@ -10,6 +10,27 @@ La aplicación permite ingresar el precio de un producto, seleccionar la categor
 El sistema también permite agregar el impuesto correspondiente a las bolsas plásticas cuando la compra las incluye.
 
 
+
+## Arquitectura del Proyecto
+
+calculadora_impuestos/
+├── src/
+│   ├── model/
+│   │   ├── __init__.py
+│   │   └── calculadora_impuestos.py     # Lógica de negocio (cálculos y validaciones)
+│   └── view/
+│       └── console/
+│           ├── __init__.py
+│           └── consola_calculadora.py   # Interfaz de consola (interacción con el usuario)
+├── tests/
+│   ├── __init__.py
+│   └── test_calculadora.py              # Pruebas unitarias del model
+└── doc/
+    ├── Casos de prueba calculadora impuestos.xlsx
+    └── Entrevista.mp4
+
+
+
 ## Funcionalidades
 
 La aplicación permite trabajar con las siguientes categorías:
