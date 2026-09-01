@@ -12,7 +12,7 @@ class CalculadoraImpuestosTest(unittest.TestCase):
     # ========================================================
 
     def test_cp01_iva_19(self):
-        precio = calc.procesar_precio("100000")
+        precio = calc.validar_y_convertir_precio("100000")
 
         resultado = calc.calcular_impuestos(
             precio,
@@ -28,7 +28,7 @@ class CalculadoraImpuestosTest(unittest.TestCase):
         )
 
     def test_cp02_inc(self):
-        precio = calc.procesar_precio("40000")
+        precio = calc.validar_y_convertir_precio("40000")
 
         resultado = calc.calcular_impuestos(
             precio,
@@ -44,7 +44,7 @@ class CalculadoraImpuestosTest(unittest.TestCase):
         )
 
     def test_cp03_iva_19_con_bolsas(self):
-        precio = calc.procesar_precio("100000")
+        precio = calc.validar_y_convertir_precio("100000")
 
         resultado = calc.calcular_impuestos(
             precio,
@@ -66,7 +66,7 @@ class CalculadoraImpuestosTest(unittest.TestCase):
     # ========================================================
 
     def test_cp04_precio_muy_alto(self):
-        precio = calc.procesar_precio(
+        precio = calc.validar_y_convertir_precio(
             "999999999"
         )
 
@@ -84,7 +84,7 @@ class CalculadoraImpuestosTest(unittest.TestCase):
         )
 
     def test_cp05_ningun_impuesto(self):
-        precio = calc.procesar_precio(
+        precio = calc.validar_y_convertir_precio(
             "50000"
         )
 
@@ -96,7 +96,7 @@ class CalculadoraImpuestosTest(unittest.TestCase):
             )
 
     def test_cp06_excluido_con_bolsas(self):
-        precio = calc.procesar_precio(
+        precio = calc.validar_y_convertir_precio(
             "40000"
         )
 
@@ -124,7 +124,7 @@ class CalculadoraImpuestosTest(unittest.TestCase):
 
         self.assertRaises(
             calc.PrecioInvalidoError,
-            calc.procesar_precio,
+            calc.validar_y_convertir_precio,
             precio
         )
 
@@ -134,7 +134,7 @@ class CalculadoraImpuestosTest(unittest.TestCase):
         with self.assertRaises(
             calc.PrecioInvalidoError
         ):
-            calc.procesar_precio(
+            calc.validar_y_convertir_precio(
                 precio
             )
 
@@ -144,12 +144,12 @@ class CalculadoraImpuestosTest(unittest.TestCase):
         with self.assertRaises(
             calc.PrecioInvalidoError
         ):
-            calc.procesar_precio(
+            calc.validar_y_convertir_precio(
                 precio
             )
 
     def test_cp10_doble_iva(self):
-        precio = calc.procesar_precio(
+        precio = calc.validar_y_convertir_precio(
             "100000"
         )
 

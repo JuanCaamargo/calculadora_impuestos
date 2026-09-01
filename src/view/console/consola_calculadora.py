@@ -87,7 +87,7 @@ def ejecutar_calculo():
     )
 
     try:
-        precio = calc.procesar_precio(
+        precio = calc.validar_y_convertir_precio(
             texto_precio
         )
 

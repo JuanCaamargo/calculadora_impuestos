@@ -23,7 +23,10 @@ class ImpuestoInvalidoError(Exception):
         super().__init__("La selección de impuestos no es válida")
 
 
-def procesar_precio(texto):
+def validar_y_convertir_precio(texto):
+    """
+    Valida el precio ingresado y lo convierte a un valor numérico.
+    """
     if texto is None or texto.strip() == "":
         raise PrecioInvalidoError()
 
