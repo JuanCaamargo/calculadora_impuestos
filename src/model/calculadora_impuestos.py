@@ -81,31 +81,19 @@ def calcular_impuestos(
 
     if iva19:
         nombre_impuesto = "IVA 19%"
-        valor_impuesto = round(
-            precio * TARIFA_IVA_GENERAL,
-            2
-        )
+        valor_impuesto = precio * TARIFA_IVA_GENERAL
 
     elif iva5:
         nombre_impuesto = "IVA 5%"
-        valor_impuesto = round(
-            precio * TARIFA_IVA_REDUCIDO,
-            2
-        )
+        valor_impuesto = precio * TARIFA_IVA_REDUCIDO
 
     elif inc:
         nombre_impuesto = "Impuesto Nacional al Consumo"
-        valor_impuesto = round(
-            precio * TARIFA_INC,
-            2
-        )
+        valor_impuesto = precio * TARIFA_INC
 
     elif impuesto_licor:
         nombre_impuesto = "Impuesto a licores"
-        valor_impuesto = round(
-            precio * TARIFA_LICOR,
-            2
-        )
+        valor_impuesto = precio * TARIFA_LICOR
 
     elif exento:
         nombre_impuesto = "Exento"
@@ -121,15 +109,9 @@ def calcular_impuestos(
         if cantidad_bolsas <= 0:
             raise ImpuestoInvalidoError()
 
-        valor_bolsas = round(
-            cantidad_bolsas * VALOR_BOLSA,
-            2
-        )
+        valor_bolsas = cantidad_bolsas * VALOR_BOLSA
 
-    total = round(
-        precio + valor_impuesto + valor_bolsas,
-        2
-    )
+    total = precio + valor_impuesto + valor_bolsas
 
     resultado = {
         "precio_base": precio,
