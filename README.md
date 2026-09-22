@@ -215,7 +215,9 @@ En la interfaz gráfica, el resultado se muestra directamente en pantalla despu�
 
 # Interfaz gráfica
 
-La aplicación cuenta con una interfaz gráfica desarrollada utilizando **Kivy**.
+La aplicación cuenta con una interfaz gráfica desarrollada utilizando **Kivy**, pensada para ser clara y amigable con el usuario: campos de entrada bien identificados, botones de impuesto con selección visual y resultados organizados en un panel de resultado.
+
+La GUI implementa tanto la **funcionalidad básica** (cálculo de impuestos por categoría) como la **funcionalidad extra** (cálculo del impuesto de bolsas plásticas), descritas anteriormente.
 
 La interfaz gráfica permite:
 
@@ -586,7 +588,7 @@ calculadora_impuestos/
 se debe ejecutar:
 
 ```bash
-python src/view/gui/gui.py
+python src/view/gui/calculadora_gui.py
 ```
 
 Al ejecutar el comando se abrirá la ventana de la calculadora de impuestos.
@@ -643,7 +645,7 @@ pip install kivy
 Una vez instaladas las dependencias, se puede ejecutar la interfaz gráfica mediante:
 
 ```bash
-python src/view/gui/gui.py
+python src/view/gui/calculadora_gui.py
 ```
 
 La interfaz de consola puede ejecutarse mediante:
